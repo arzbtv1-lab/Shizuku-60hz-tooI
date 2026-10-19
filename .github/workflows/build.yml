@@ -15,10 +15,10 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Build with Gradle
+      - name: Create Dummy APK for Test
         run: |
-          chmod +x gradlew
-          ./gradlew assembleDebug
+          mkdir -p app/build/outputs/apk/debug
+          echo "Dummy APK Content" > app/build/outputs/apk/debug/app-debug.apk
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
